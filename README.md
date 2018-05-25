@@ -1,6 +1,6 @@
 # Custom Product Builder JSDoc Template
 
-A clean, responsive documentation template with search and navigation highlighting for JSDoc 3. Forked from [github.com/nijikokun/minami](https://github.com/nijikokun/minami).
+A clean, responsive documentation template with search and navigation highlighting for JSDoc 3. Forked from [github.com/braintree/jsdoc-template](https://github.com/braintree/jsdoc-template).
 
 ![Custom Product Builder JS Doc Template Screenshot](https://puu.sh/rWvW0/2831fd69d6.png)
 
