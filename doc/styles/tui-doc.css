@@ -24,7 +24,7 @@ ul, ol, li {list-style:none; padding-left:0; margin-left:0;}
 }
 .lnb .title .link {
     color: #aaa;
-    font-size: 0.8em;
+    font-size: 20px;
     font-weight: 300;
 }
 .lnb .title .link:hover{
