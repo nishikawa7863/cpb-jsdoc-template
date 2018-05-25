@@ -16,7 +16,6 @@ ul, ol, li {list-style:none; padding-left:0; margin-left:0;}
     padding: 0 20px;
 }
 .lnb .logo {
-    height: 13px;
     margin: 20px auto 0;
 }
 .lnb .title {
@@ -25,6 +24,11 @@ ul, ol, li {list-style:none; padding-left:0; margin-left:0;}
 }
 .lnb .title .link {
     color: #aaa;
+    font-size: 0.8em;
+    font-weight: 300;
+}
+.lnb .title .link:hover{
+    text-decoration: none;
 }
 .lnb h3 {
     font-size: 1.5em;
@@ -102,7 +106,7 @@ ul, ol, li {list-style:none; padding-left:0; margin-left:0;}
 
 .lnb .version {
     color: #aaa;
-    font-size: 1.2em;
+    font-size: 1.1em;
     opacity: 0.7;
 }
 
@@ -442,7 +446,7 @@ footer {
 
 /* ETC */
 .logo {
-    width: 90px;
+    width: 100%;
     vertical-align: initial;
 }
 .hidden {

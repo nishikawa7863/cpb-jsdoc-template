@@ -19,8 +19,6 @@ TUI JSDoc template has the following features:
   * Resizable
 * Examples: HTML/JS source tab in example pages
 
-![Example](https://cloud.githubusercontent.com/assets/12269563/20049432/69d2ed42-a506-11e6-980e-53b991e5ee5b.png)
-
 ## Configuration
 
 ([*jsdoc page - configuration*](http://usejsdoc.org/about-configuring-jsdoc.html#incorporating-command-line-options-into-the-configuration-file))
