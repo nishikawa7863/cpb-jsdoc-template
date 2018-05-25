@@ -1,86 +1,146 @@
-# Custom Product Builder JSDoc Template
+# CPB JSDoc Template
+CPB JSDoc template
 
-A clean, responsive documentation template with search and navigation highlighting for JSDoc 3. Forked from [github.com/braintree/jsdoc-template](https://github.com/braintree/jsdoc-template).
+## Install
 
-![Custom Product Builder JS Doc Template Screenshot](https://puu.sh/rWvW0/2831fd69d6.png)
-
-## Responsive
-
-![Custom Product Builder JS Doc Template Screenshot](https://puu.sh/rWvZ6/aee92a4787.png)
-
-## Uses
-
-- [the Taffy Database library](http://taffydb.com/)
-- [Underscore Template library](http://documentcloud.github.com/underscore/#template)
-- [Algolia DocSearch](https://community.algolia.com/docsearch/)
-
-## Usage
-
-Clone repository to your designated `jsdoc` template directory, then:
-
-
-### Node.js Dependency
-
-In your projects `package.json` file add a generate script:
-
-```json
-"script": {
-  "generate-docs": "node_modules/.bin/jsdoc --configure .jsdoc.json --verbose"
-}
+```
+npm i -D https://github.com/nishikawa7863/cpb-jsdoc-template.git
 ```
 
-In your `.jsdoc.json` file, add a template option.
+## Feature
 
-```json
+TUI JSDoc template has the following features:
+
+* Navigation:
+  * AutoComplete Searchbox
+  * Collapsible
+  * Members / Methods / Events
+  * API / Examples (Tutorials) switcher
+  * Resizable
+* Examples: HTML/JS source tab in example pages
+
+![Example](https://cloud.githubusercontent.com/assets/12269563/20049432/69d2ed42-a506-11e6-980e-53b991e5ee5b.png)
+
+## Configuration
+
+([*jsdoc page - configuration*](http://usejsdoc.org/about-configuring-jsdoc.html#incorporating-command-line-options-into-the-configuration-file))
+
+### Template
+
+```
 "opts": {
-  "template": "node_modules/jsdoc-template"
+    "template": "node_modules/tui-jsdoc-template"
 }
 ```
 
-### Example JSDoc Config
+### Logo
 
-```json
-{
-    "tags": {
-        "allowUnknownTags": true,
-        "dictionaries": ["jsdoc"]
-    },
-    "source": {
-        "include": ["lib", "package.json", "README.md"],
-        "includePattern": ".js$",
-        "excludePattern": "(node_modules/|docs)"
-    },
-    "plugins": [
-        "plugins/markdown"
-    ],
-    "templates": {
-        "referenceTitle": "My SDK Name",
-        "disableSort": false
-    },
-    "opts": {
-        "destination": "./docs/",
-        "encoding": "utf8",
-        "private": true,
-        "recurse": true,
-        "template": "./node_modules/jsdoc-template"
-    }
-}
 ```
-
-Note: `referenceTitle` and `disableSort` will affect the output of this theme.
-
-If you would like to enable [Algolia DocSearch](https://community.algolia.com/docsearch/), you can pass a `search` object into the `templates` object.
-
-```json
 "templates": {
-    "search": {
-        "apiKey": "your-api-key",
-        "indexName": "Your index name. Defaults to braintree.",
-        "hitsPerPage": "Number of Results to show. Defaults to 7.",
+    "logo": {
+        "url": "http://nhnent.github.io/tui.component.tree/latest/styles/logo.png",
+        "width": "150px",
+        "height": "13px",
+        "link": "https://github.com/nhnent/tui.jsdoc-template"
     }
 }
 ```
 
-## License
+### Page title
 
-Licensed under the Apache2 license.
+```
+"templates": {
+    "name": "Tui JSDoc Template"
+}
+```
+
+### Footer text
+
+```
+"templates": {
+    "footerText": "My awesome footer text"
+}
+```
+
+### Use collapsible api list
+
+*Default: `true`*
+```
+"templates": {
+    "useCollapsibles": true
+}
+```
+
+### Tab Names
+
+```
+"templates": {
+    "tabNames": {
+        "api": "API",
+        "tutorials": "Examples"
+    }
+}
+```
+
+`api` defaults to the value `API` and `tutorials` defaults to the value `Examples`.
+
+### Custom Styles
+
+With a folder structure like this:
+```
+static
+└── styles
+    └── custom.css
+    └── another.css
+```
+And a config like this:
+```js
+"templates": {
+    "default": {
+        "staticFiles": {
+            "include": ["static/"]
+        }
+    },
+    "css": [
+        "styles/custom.css",
+        "styles/another.css",
+        "http://example.com/remote.css"
+    ]
+}
+```
+
+`styles/custom.css`, `styles/another.css`, and `remote.css` get included in the layout.
+`default.staticFiles` is the build-in jsdoc way of copying extra files.
+
+## Expose the html/js code to exmaple page
+
+If `script` or `div` elements have `code-js` or `code-html` class, expose their innerHTML.
+
+1. innerHTML of `script.code-js` tag
+2. innerHTML of `div.code-html` tag
+
+```
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>example</title>
+</head>
+<body>
+    <div class="code-html">
+        <h3> Base Example </h3>
+        <p> Hello world </p>
+    </div>
+
+    <script class="code-js">
+        console.log('hello world');
+    </script>
+</body>
+</html>
+
+```
+
+## Development
+
+1. Use `npm run serve` or `gulp serve` command to ascertain realtime.
+3. Api-Example tab, Auto-Complete and Resize functions are written in the `static/scripts/tui-doc.js` file.
